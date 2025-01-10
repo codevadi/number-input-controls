@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata and responsive settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Input Controls</title>
+
+    <!-- Link to Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Internal CSS styles for layout and design -->
+    <style>
+        html {
+            min-height: 100%;
+        }
+        body {
+            min-height: 100%;
+            height: 100%;
+            font-family: "Helvetica" !important; /* Set font to Helvetica */
+            padding: 60px;
+            margin-top: 50px;
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); /* Gradient background */
+            background-repeat: no-repeat;
+            max-height: 100vh;
+        }
+        .input {
+            max-width: 150px; /* Set maximum width for input elements */
+            display: block;
+            margin: 0 auto 20px; /* Center the input and add spacing */
+        }
+        h3 {
+            color: white !important; /* Make headings white */
+        }
+        h3 + hr {
+            margin-bottom: 50px !important; /* Add spacing after headings */
+        }
+    </style>
+</head>
+<body>
+<!-- Page title -->
+<h1 style="text-align: center; color: white">Number Input Controls</h1>
+<hr>
+
+<!-- Main content area -->
+<div class="row text-center">
+    <!-- Left column: Inputs without Bootstrap -->
+    <div class="col-6 flex text-center">
+        <h3>Without Bootstrap</h3>
+        <hr>
+        <!-- Input fields with different skins -->
+        <div class="input">
+            <input type="number" class="number-modern1" value="1" readonly>
+        </div>
+        <div class="input">
+            <input type="number" class="number-modern2" value="1" readonly max="5">
+        </div>
+        <div class="input">
+            <input type="number" class="number-modern3" value="1" readonly>
+        </div>
+        <div class="input">
+            <input type="number" class="number-modern4" value="1" readonly>
+        </div>
+    </div>
+
+    <!-- Right column: Inputs with Bootstrap -->
+    <div class="col-6">
+        <h3>With Bootstrap</h3>
+        <hr>
+        <!-- Input field with Bootstrap styling -->
+        <div class="input">
+            <input class="form-control number-modern-bootstrap" type="text" value="1" min="1" max="10"
+                   style="text-align: center;">
+        </div>
+        <!-- Embedded demo iframe -->
+        <div class="input">
+            <iframe src="demo-bootstrap3.html" height="200" width="300"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the bundled JavaScript file -->
+<script src="../dist/number-input-controls.js"></script>
+
+<!-- Initialize the NumberInputControls module -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize NumberInputControls for each input with different configurations
+        new NumberInputControls({
+            selector: '.number-modern1', // Default skin
+        });
+        new NumberInputControls({
+            selector: '.number-modern2',
+            skin: 'skin-2', // Custom skin 2
+        });
+        new NumberInputControls({
+            selector: '.number-modern3',
+            skin: 'skin-3', // Custom skin 3
+        });
+        new NumberInputControls({
+            selector: '.number-modern4',
+            skin: 'skin-4', // Custom skin 4
+        });
+        new NumberInputControls({
+            selector: '.number-modern-bootstrap', // Bootstrap-styled input
+            skin: 'skin-bootstrap',
+            bootstrapConfig: {
+                size: 'md', // Medium-sized buttons
+                buttonClassMinus: 'btn btn-danger', // Custom minus button class
+                buttonClassPlus: 'btn btn-success', // Custom plus button class
+            },
+            onPlus: (value, $input) => {
+                console.log(`Plus clicked! New value: ${value}`);
+            },
+            onMinus: (value, $input) => {
+                console.log(`Minus clicked! New value: ${value}`);
+            },
+        });
+    });
+</script>
+</body>
+</html>

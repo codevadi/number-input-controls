@@ -1,0 +1,13 @@
+# Node.js and npm
+node_modules/
+npm-debug.log
+package-lock.json
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

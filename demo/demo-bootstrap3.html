@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Input Controls</title>
+
+    <!-- Inline CSS styles for the page -->
+    <style>
+        body {
+            background: transparent!important;
+            text-align: left!important;
+        }
+        .input {
+            max-width: 150px;
+        }
+    </style>
+
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="input">
+    <!-- Input field styled with Bootstrap and additional custom styles -->
+    <input class="form-control number-modern-bootstrap3" type="text" value="1" min="1" max="10"
+           style="text-align: center;">
+</div>
+
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the bundled JavaScript file -->
+<script src="../dist/number-input-controls.js"></script>
+
+<!-- Initialize the NumberInputControls module with configuration -->
+<script>
+    new NumberInputControls({
+        selector: '.number-modern-bootstrap3', // Target the input field
+        skin: 'skin-bootstrap3',               // Apply Bootstrap skin
+        bootstrapConfig: {
+            size: 'md',                         // Set Bootstrap button size (e.g., 'lg', 'sm', 'md')
+            buttonClassMinus: 'btn btn-info',   // Apply custom class to the minus button
+            buttonClassPlus: 'btn btn-success', // Apply custom class to the plus button
+        },
+        onPlus: (value, $input) => {
+            // Event callback for the "+" button
+            console.log(`Plus clicked! New value: ${value}`);
+        },
+        onMinus: (value, $input) => {
+            // Event callback for the "-" button
+            console.log(`Minus clicked! New value: ${value}`);
+        },
+    });
+</script>
+</body>
+</html>
