@@ -3,7 +3,7 @@
 Number Input Controls is a lightweight and customizable JavaScript plugin for modern number input controls. It supports different visual skins and Bootstrap integration, and can be used in both ES module and non-module environments.
 
 
-![Number Input Controls](demo/demo.png)
+![Number Input Controls](https://github.com/codevadi/number-input-controls/blob/main/demo/demo.png)
 
 
 ## Features
